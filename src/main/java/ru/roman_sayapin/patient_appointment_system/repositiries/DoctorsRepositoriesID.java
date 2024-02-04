@@ -7,12 +7,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface DoctorsRepositories extends JpaRepository<DoctorsEntity, Long> {
+public interface DoctorsRepositoriesID extends JpaRepository<DoctorsEntity, Long> {
     @Override
     List<DoctorsEntity> findAll();
 
     @Override
     Optional<DoctorsEntity> findById(Long id);
 
-    Optional<DoctorsEntity> findByUuid(UUID id);
 }

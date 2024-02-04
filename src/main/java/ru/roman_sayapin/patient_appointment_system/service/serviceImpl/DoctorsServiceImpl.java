@@ -1,7 +1,7 @@
 package ru.roman_sayapin.patient_appointment_system.service.serviceImpl;
 
 import ru.roman_sayapin.patient_appointment_system.DataBase.entity.DoctorsEntity;
-import ru.roman_sayapin.patient_appointment_system.repositiries.DoctorsRepositories;
+import ru.roman_sayapin.patient_appointment_system.repositiries.DoctorsRepositoriesID;
 import ru.roman_sayapin.patient_appointment_system.service.DoctorsService;
 
 import java.util.List;
@@ -10,10 +10,13 @@ import java.util.UUID;
 
 public class DoctorsServiceImpl implements DoctorsService {
 
-   private final  DoctorsRepositories doctorsRepositories;
+   private final DoctorsRepositoriesID doctorsRepositories;
+   private final DoctorsRepositoriesUUID doctorsRepositoriesUUID;
 
-    public DoctorsServiceImpl(DoctorsRepositories doctorsRepositories) {
+    public DoctorsServiceImpl(DoctorsRepositoriesID doctorsRepositories,
+                              DoctorsRepositoriesUUID doctorsRepositoriesUUID) {
         this.doctorsRepositories = doctorsRepositories;
+        this.doctorsRepositoriesUUID = doctorsRepositoriesUUID;
     }
 
     @Override
