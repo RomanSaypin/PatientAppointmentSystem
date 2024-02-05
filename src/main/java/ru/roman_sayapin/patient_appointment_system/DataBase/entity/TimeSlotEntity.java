@@ -3,6 +3,7 @@ package ru.roman_sayapin.patient_appointment_system.DataBase.entity;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -13,20 +14,23 @@ public class TimeSlotEntity {
     @Column(name = "id", nullable = false)
     private Long id;
     @Basic
-    @Column(name = "doctor_id", nullable = true)
-    private Integer doctorId;
+    @Column(name = "doctor_id", nullable = true, insertable = false, updatable = false)
+    private Long doctorId;
     @Basic
-    @Column(name = "patient_id", nullable = true)
-    private Integer patientId;
+    @Column(name = "patient_id", nullable = true, insertable = false, updatable = false)
+    private Long patientId;
     @Basic
     @Column(name = "start_time", nullable = true)
-    private Timestamp startTime;
+    private LocalDate startTime;
     @ManyToOne
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     private DoctorsEntity doctors;
     @ManyToOne
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
     private PatientsEntity patients;
+
+    public TimeSlotEntity() {
+    }
 
     public Long getId() {
         return id;
@@ -36,27 +40,27 @@ public class TimeSlotEntity {
         this.id = id;
     }
 
-    public Integer getDoctorId() {
+    public Long getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(Integer doctorId) {
+    public void setDoctorId(Long doctorId) {
         this.doctorId = doctorId;
     }
 
-    public Integer getPatientId() {
+    public Long getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(Integer patientId) {
+    public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
 
-    public Timestamp getStartTime() {
+    public LocalDate getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
+    public void setStartTime(LocalDate  startTime) {
         this.startTime = startTime;
     }
 

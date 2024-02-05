@@ -12,4 +12,6 @@ public interface PatientsRepositoriesID extends JpaRepository<PatientsEntity, Lo
     Optional<PatientsEntity> findById(Long id);
     @Override
     List<PatientsEntity> findAll();
+
+    Optional<PatientsEntity> findByUuid(UUID id);
 }

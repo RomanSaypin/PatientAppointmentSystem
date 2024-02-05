@@ -3,6 +3,7 @@ package ru.roman_sayapin.patient_appointment_system.DataBase.entity;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -22,7 +23,7 @@ public class PatientsEntity {
     private String fullName;
     @Basic
     @Column(name = "date_of_birth", nullable = true)
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     @OneToMany(mappedBy = "patients")
     private List<TimeSlotEntity> timeSlots;
 
@@ -50,11 +51,11 @@ public class PatientsEntity {
         this.fullName = fullName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

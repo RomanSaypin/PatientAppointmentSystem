@@ -14,4 +14,6 @@ public interface DoctorsRepositoriesID extends JpaRepository<DoctorsEntity, Long
     @Override
     Optional<DoctorsEntity> findById(Long id);
 
+    Optional<DoctorsEntity> findByUuid(UUID id);
+
 }

@@ -14,9 +14,9 @@ CREATE TABLE patients (
 
 CREATE TABLE time_slot (
                            id BIGSERIAL NOT NULL PRIMARY KEY,
-                           doctor_id INT REFERENCES doctors(id),
-                           patient_id INT REFERENCES patients(id),
-                           start_time TIMESTAMP
+                           doctor_id BIGSERIAL REFERENCES doctors(id),
+                           patient_id BIGSERIAL REFERENCES patients(id),
+                           start_time DATE
 );
 
 INSERT INTO doctors (uuid, full_name, specialization)

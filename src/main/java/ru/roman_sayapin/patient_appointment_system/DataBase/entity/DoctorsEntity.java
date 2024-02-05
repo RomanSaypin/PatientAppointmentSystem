@@ -21,9 +21,13 @@ public class DoctorsEntity {
     private String fullName;
     @Basic
     @Column(name = "specialization", nullable = true, length = 255)
-    private String specialization;
+    @Enumerated(EnumType.STRING)
+    private Specialization specialization;
     @OneToMany(mappedBy = "doctors")
     private List<TimeSlotEntity> timeSlots;
+
+    public DoctorsEntity() {
+    }
 
     public Long getId() {
         return id;
@@ -49,11 +53,11 @@ public class DoctorsEntity {
         this.fullName = fullName;
     }
 
-    public String getSpecialization() {
+    public Specialization getSpecialization() {
         return specialization;
     }
 
-    public void setSpecialization(String specialization) {
+    public void setSpecialization(Specialization specialization) {
         this.specialization = specialization;
     }
 
